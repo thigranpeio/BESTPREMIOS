@@ -1,17 +1,16 @@
-
 import React, { useState, FormEvent } from 'react';
 import { User } from '../types';
-import { MOCK_USERS } from '../constants';
 import { EyeIcon } from './icons/EyeIcon';
 import { UserIcon } from './icons/UserIcon';
 import { LockIcon } from './icons/LockIcon';
 
 interface LoginPageProps {
+  users: User[];
   onLogin: (user: User) => void;
   onRegister: (newUser: Omit<User, 'id' | 'role'>) => void;
 }
 
-const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister }) => {
+const LoginPage: React.FC<LoginPageProps> = ({ users, onLogin, onRegister }) => {
   const [isRegistering, setIsRegistering] = useState(false);
   const [cpf, setCpf] = useState('');
   const [password, setPassword] = useState('');
@@ -23,7 +22,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister }) => {
   const handleLoginSubmit = (e: FormEvent) => {
     e.preventDefault();
     setError('');
-    const user = MOCK_USERS.find(u => u.cpf === cpf && u.password_mock === password);
+    const user = users.find(u => u.cpf === cpf && u.password_mock === password);
     if (user) {
       onLogin(user);
     } else {
@@ -38,7 +37,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister }) => {
         setError('Todos os campos são obrigatórios.');
         return;
     }
-    const existingUser = MOCK_USERS.find(u => u.cpf === cpf);
+    const existingUser = users.find(u => u.cpf === cpf);
     if (existingUser) {
         setError('Este CPF já está cadastrado.');
         return;

@@ -45,7 +45,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user, salesData, onLogout
   const filteredSales = useMemo(() => {
     let sales = user.role === UserRole.ADMIN 
       ? salesData 
-      : salesData.filter(sale => sale.vendedorId === user.id);
+      : salesData.filter(sale => sale.vendedor_id === user.id);
 
     if (startDate) {
         sales = sales.filter(sale => new Date(sale.data) >= new Date(startDate + 'T00:00:00'));
@@ -87,10 +87,10 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user, salesData, onLogout
     filteredSales.forEach(sale => {
       const saleData = [
         new Date(sale.data + 'T00:00:00').toLocaleDateString('pt-BR'),
-        sale.vendedorNome,
+        sale.vendedor_nome,
         sale.loja,
-        sale.osLoja,
-        sale.osSavwin,
+        sale.os_loja,
+        sale.os_savwin,
         sale.lente,
         sale.tratamento,
         sale.premio ? sale.premio.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '-',

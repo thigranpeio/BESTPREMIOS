@@ -11,8 +11,8 @@ interface NewSaleModalProps {
 const NewSaleModal: React.FC<NewSaleModalProps> = ({ isOpen, onClose, onAddSale, currentUser }) => {
   const [formData, setFormData] = useState({
     data: new Date().toISOString().split('T')[0],
-    osLoja: '',
-    osSavwin: '',
+    os_loja: '',
+    os_savwin: '',
     lente: '',
     tratamento: ''
   });
@@ -26,15 +26,15 @@ const NewSaleModal: React.FC<NewSaleModalProps> = ({ isOpen, onClose, onAddSale,
     e.preventDefault();
     onAddSale({
       ...formData,
-      vendedorId: currentUser.id,
-      vendedorNome: currentUser.nome,
+      vendedor_id: currentUser.id,
+      vendedor_nome: currentUser.nome,
       loja: currentUser.loja,
     });
     // Reset form for next entry
     setFormData({
         data: new Date().toISOString().split('T')[0],
-        osLoja: '',
-        osSavwin: '',
+        os_loja: '',
+        os_savwin: '',
         lente: '',
         tratamento: ''
     });
@@ -57,11 +57,11 @@ const NewSaleModal: React.FC<NewSaleModalProps> = ({ isOpen, onClose, onAddSale,
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-300">OS Loja</label>
-            <input type="text" name="osLoja" value={formData.osLoja} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <input type="text" name="os_loja" value={formData.os_loja} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-300">OS Savwin</label>
-            <input type="text" name="osSavwin" value={formData.osSavwin} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <input type="text" name="os_savwin" value={formData.os_savwin} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-300">Lente</label>

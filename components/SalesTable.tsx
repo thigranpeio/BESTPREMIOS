@@ -3,7 +3,7 @@ import { Sale, User, UserRole, SaleStatus } from '../types';
 import { EditIcon } from './icons/EditIcon';
 import { FilterIcon } from './icons/FilterIcon';
 
-type FilterableColumn = 'vendedorNome' | 'loja' | 'lente' | 'tratamento' | 'status';
+type FilterableColumn = 'vendedor_nome' | 'loja' | 'lente' | 'tratamento' | 'status';
 
 interface SalesTableProps {
   sales: Sale[];
@@ -92,7 +92,7 @@ const SalesTable: React.FC<SalesTableProps> = ({ sales, currentUser, filters, on
           <thead className="text-xs text-slate-200 uppercase bg-slate-700/50 select-none">
             <tr>
               <th scope="col" className="px-6 py-3">Data</th>
-              {renderFilterableHeader("Vendedor", "vendedorNome")}
+              {renderFilterableHeader("Vendedor", "vendedor_nome")}
               {renderFilterableHeader("Loja", "loja")}
               <th scope="col" className="px-6 py-3">OS Loja</th>
               <th scope="col" className="px-6 py-3">OS Savwin</th>
@@ -109,10 +109,10 @@ const SalesTable: React.FC<SalesTableProps> = ({ sales, currentUser, filters, on
             {sales.map(sale => (
               <tr key={sale.id} className="bg-slate-800 border-b border-slate-700 hover:bg-slate-700/50 transition-colors">
                 <td className="px-6 py-4">{formatDate(sale.data)}</td>
-                <td className="px-6 py-4 font-medium text-white">{sale.vendedorNome}</td>
+                <td className="px-6 py-4 font-medium text-white">{sale.vendedor_nome}</td>
                 <td className="px-6 py-4">{sale.loja}</td>
-                <td className="px-6 py-4">{sale.osLoja}</td>
-                <td className="px-6 py-4">{sale.osSavwin}</td>
+                <td className="px-6 py-4">{sale.os_loja}</td>
+                <td className="px-6 py-4">{sale.os_savwin}</td>
                 <td className="px-6 py-4">{sale.lente}</td>
                 <td className="px-6 py-4">{sale.tratamento}</td>
                 <td className="px-6 py-4 font-medium text-cyan-300">

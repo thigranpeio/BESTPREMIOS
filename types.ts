@@ -21,11 +21,11 @@ export interface User {
 export interface Sale {
   id:string;
   data: string;
-  vendedorId: string;
-  vendedorNome: string;
+  vendedor_id: string;
+  vendedor_nome: string;
   loja: string;
-  osLoja: string;
-  osSavwin: string;
+  os_loja: string;
+  os_savwin: string;
   lente: string;
   tratamento: string;
   status: SaleStatus;
