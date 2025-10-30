@@ -1,0 +1,5 @@
+{
+  "name": "BEST",
+  "description": "An intuitive web application for sales teams to log and view sales entries. Features role-based access control, allowing administrators to view all entries and users to view only their own, plus an AI-powered reporting feature for admins.",
+  "requestFramePermissions": []
+}
